@@ -1,6 +1,7 @@
 import MobileNavigation from "@/components/Navigation/mobile";
 import bg_mobile from "@/assets/images/bg-sidebar-mobile.svg";
 import Views from "@/views";
+import FooterNav from "@/components/FooterNav";
 
 function App() {
   return (
@@ -17,6 +18,8 @@ function App() {
 
         <Views />
       </section>
+
+      <FooterNav />
     </main>
   );
 }
