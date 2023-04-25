@@ -1,5 +1,24 @@
+import MobileNavigation from "@/components/Navigation/mobile";
+import bg_mobile from "@/assets/images/bg-sidebar-mobile.svg";
+import Views from "@/views";
+
 function App() {
-  return <h1 className="text-3xl font-bold underline">Hello world!</h1>;
+  return (
+    <main className="h-screen">
+      <div className="h-[25%] xl:hidden">
+        <img
+          src={bg_mobile}
+          className="h-full w-full object-cover"
+          alt="background"
+        />
+      </div>
+      <section className="w-[85%] lg:w-[70%] xl:w-10/12 fixed top-[8%] left-1/2 -translate-x-1/2 ">
+        <MobileNavigation />
+
+        <Views />
+      </section>
+    </main>
+  );
 }
 
 export default App;
