@@ -5,15 +5,16 @@ import FooterNav from "@/components/FooterNav";
 
 function App() {
   return (
-    <main className="h-screen">
-      <div className="h-[25%] xl:hidden">
+    <main className="overflow-auto no-scrollbar">
+      <div className="h-[25%] fixed xl:hidden">
         <img
           src={bg_mobile}
           className="h-full w-full object-cover"
           alt="background"
         />
       </div>
-      <section className="w-[85%] lg:w-[70%] xl:w-10/12 fixed top-[8%] left-1/2 -translate-x-1/2 ">
+
+      <section className="w-[85%] lg:w-[70%] xl:w-10/12 floating relative mt-12 mx-auto">
         <MobileNavigation />
 
         <Views />
