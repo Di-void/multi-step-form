@@ -6,7 +6,7 @@ import FooterNav from "@/components/FooterNav";
 function App() {
   return (
     <main className="overflow-auto no-scrollbar">
-      <div className="h-[25%] fixed xl:hidden">
+      <div className="h-[25%] w-full fixed xl:hidden">
         <img
           src={bg_mobile}
           className="h-full w-full object-cover"

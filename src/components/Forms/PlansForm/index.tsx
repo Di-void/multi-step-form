@@ -1,5 +1,6 @@
 import React from "react";
 import { Arcade, Advanced, Pro } from "@/components/Icons";
+import Switch from "@/components/Switch";
 
 const PlansForm = () => {
   return (
@@ -60,9 +61,14 @@ const PlansForm = () => {
 
 const MonthYearToggle = () => {
   return (
-    <div>
-      Monthly yearly toggle Lorem ipsum dolor sit amet consectetur adipisicing
-      elit. Cum consequuntur
+    <div className="bg-alabaster rounded-lg mt-6 py-4 flex justify-center items-center gap-4 around">
+      <h3 className="capitalize font-bold text-base text-marine-blue">
+        monthly
+      </h3>
+
+      <Switch />
+
+      <h3 className="capitalize font-bold text-base text-cool-gray">yearly</h3>
     </div>
   );
 };
