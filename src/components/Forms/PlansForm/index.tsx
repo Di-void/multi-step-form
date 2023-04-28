@@ -24,7 +24,7 @@ const PlansForm = () => {
           },
         ].map(({ plan, icon, fee }) => {
           return (
-            <div>
+            <div key={plan}>
               <input
                 type="radio"
                 id={plan}
