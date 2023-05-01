@@ -1,4 +1,4 @@
-import { PersonalInfo, Plans, Addons, FinishUp } from "./Screens";
+import { PersonalInfo, Plans, Addons, FinishUp, Thanks } from "./Screens";
 
 const Views = () => {
   return (
@@ -6,7 +6,8 @@ const Views = () => {
       {/* <PersonalInfo /> */}
       {/* <Plans /> */}
       {/* <Addons /> */}
-      <FinishUp />
+      {/* <FinishUp /> */}
+      <Thanks />
     </section>
   );
 };
