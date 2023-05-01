@@ -14,7 +14,7 @@ function App() {
         />
       </div>
 
-      <section className="w-[85%] lg:w-[70%] xl:w-10/12 floating relative mt-12 mx-auto">
+      <section className="w-[90%] lg:w-[70%] xl:w-10/12 floating relative mt-12 mx-auto">
         <MobileNavigation />
 
         <Views />

@@ -1,3 +1,5 @@
+import AddonsForm from "@/components/Forms/AddonsForm";
+
 const Addons = () => {
   return (
     <div>
@@ -8,6 +10,8 @@ const Addons = () => {
       <p className="text-cool-gray text-lg mb-4">
         Add-ons help enhance your gaming experience.
       </p>
+
+      <AddonsForm />
     </div>
   );
 };

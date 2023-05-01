@@ -22,7 +22,7 @@ const InfoForm = () => {
         },
       ].map((item) => {
         return (
-          <div>
+          <div key={item.id}>
             <header className="flex justify-between">
               <label
                 htmlFor={item.id}

@@ -19,11 +19,7 @@ const Switch = () => {
           setToggle(!toggle);
         }}
       />
-      <div
-        className={
-          "bg-white md:w-5 md:h-5 h-3 w-3 rounded-full -mt-4 ml-1 md:-mt-6 pointer-events-none shadow-md transform duration-300 ease-in-out peer-checked:transform peer-checked:translate-x-5"
-        }
-      ></div>
+      <div className="bg-white md:w-5 md:h-5 h-3 w-3 rounded-full -mt-4 ml-1 md:-mt-6 pointer-events-none shadow-md transform duration-300 ease-in-out peer-checked:transform peer-checked:translate-x-5"></div>
     </div>
   );
 };
