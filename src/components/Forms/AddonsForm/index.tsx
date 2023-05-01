@@ -25,17 +25,17 @@ const AddonsForm = () => {
           <div key={addon.id} className="relative">
             <input
               type="checkbox"
-              className="absolute peer w-4 h-4 text-red-600 bg-gray-100 border-gray-300 rounded focus:ring-red-500 dark:focus:ring-red-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-              // className="absolute peer w-4 h-4 border-light-gray rounded"
+              className="absolute top-[40%] left-4 lg:left-3 peer w-5 h-5 border-light-gray rounded text-purplish-blue focus:ring-offset-0 focus:ring-0"
               value=""
               name="addons"
               id={addon.id}
             />
             <label
               htmlFor={addon.id}
-              className="border border-light-gray rounded-md peer-checked:border-purplish-blue flex items-center gap-3 p-4 cursor-pointer hover:border-purplish-blue"
+              className="border border-light-gray rounded-md peer-checked:border-purplish-blue peer-checked:bg-magnolia flex items-center gap-5 lg:gap-10 p-4 cursor-pointer hover:border-purplish-blue"
             >
-              <div className="w-2 h-2 border border-black"></div>
+              {/* placeholder */}
+              <div className="w-5"></div>
 
               <div className="flex gap-3 justify-between items-center w-full">
                 <div className="">
