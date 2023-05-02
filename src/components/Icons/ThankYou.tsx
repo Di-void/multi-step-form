@@ -1,11 +1,8 @@
-import type { IconProps } from "./Arcade";
-
-const ThankYou = ({ height = 40, width = 40 }: IconProps) => {
+const ThankYou = () => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width={width}
-      height={height}
+      className="w-20 h-20 xl:w-24 xl:h-24"
       viewBox="0 0 80 80"
     >
       <g fill="none">

@@ -7,8 +7,8 @@ const Views = () => {
       {/* <PersonalInfo /> */}
       {/* <Plans /> */}
       {/* <Addons /> */}
-      <FinishUp />
-      {/* <Thanks /> */}
+      {/* <FinishUp /> */}
+      <Thanks />
 
       <FooterNav />
     </section>
