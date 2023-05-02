@@ -1,4 +1,5 @@
-import MobileNavigation from "@/components/Navigation/mobile";
+import MobileNavigation from "./components/Navigation/mobile";
+import DesktopNav from "./components/Navigation/desktop";
 import bg_mobile from "@/assets/images/bg-sidebar-mobile.svg";
 import Views from "@/views";
 import FooterNav from "@/components/FooterNav";
@@ -14,8 +15,9 @@ function App() {
         />
       </div>
 
-      <section className="w-[90%] lg:w-[70%] xl:w-10/12 floating relative mt-12 mx-auto">
+      <section className="w-[90%] lg:w-[70%] xl:w-10/12 floating relative xl:flex xl:justify-between gap-6 xl:rounded-lg xl:p-4 mt-12 mx-auto xl:bg-white xl:shadow-lg">
         <MobileNavigation />
+        <DesktopNav />
 
         <Views />
       </section>
