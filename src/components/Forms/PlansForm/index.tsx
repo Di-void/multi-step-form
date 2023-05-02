@@ -5,7 +5,7 @@ import Switch from "@/components/Switch";
 const PlansForm = () => {
   return (
     <React.Fragment>
-      <form className="flex flex-col gap-3">
+      <form className="flex flex-col xl:flex-row gap-3 xl:justify-evenly">
         {[
           {
             plan: "arcade",
@@ -35,11 +35,11 @@ const PlansForm = () => {
               />
               <label
                 htmlFor={plan}
-                className="p-4 flex gap-3 border border-light-gray hover:border-purplish-blue peer-checked:bg-alabaster peer-checked:border-purplish-blue rounded-md cursor-pointer transition-all duration-300"
+                className="p-4 xl:p-6 flex xl:flex-col gap-3 border border-light-gray hover:border-purplish-blue peer-checked:bg-alabaster peer-checked:border-purplish-blue rounded-md cursor-pointer transition-all duration-300"
               >
                 {icon}
 
-                <div>
+                <div className="xl:mt-8">
                   <h4 className="capitalize text-marine-blue text-lg font-bold">
                     {plan}
                   </h4>

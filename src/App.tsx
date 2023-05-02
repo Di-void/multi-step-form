@@ -14,7 +14,7 @@ function App() {
         />
       </div>
 
-      <section className="w-[90%] lg:w-[70%] xl:w-9/12 relative floating mx-auto mt-12 xl:flex gap-6 xl:justify-between xl:rounded-lg xl:p-4 xl:mt-0 xl:bg-white xl:shadow-lg">
+      <section className="w-[90%] lg:w-[70%] xl:w-9/12 relative floating mx-auto mt-12 xl:flex gap-16 xl:rounded-lg xl:p-4 xl:mt-0 xl:bg-white xl:shadow-lg">
         <MobileNavigation />
         <DesktopNav />
 
