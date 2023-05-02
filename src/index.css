@@ -16,6 +16,12 @@
     height: calc(100vh - 160px);
   }
 
+  @media (min-width: 1000px) {
+    .floating {
+      height: 37rem;
+    }
+  }
+
   /* Hide scrollbar for Chrome, Safari and Opera */
   .no-scrollbar::-webkit-scrollbar {
     display: none;

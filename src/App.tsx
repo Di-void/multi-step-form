@@ -6,7 +6,7 @@ import FooterNav from "@/components/FooterNav";
 
 function App() {
   return (
-    <main className="overflow-auto no-scrollbar">
+    <main className="overflow-auto no-scrollbar xl:h-screen xl:flex justify-center items-center">
       <div className="h-[25%] w-full fixed xl:hidden">
         <img
           src={bg_mobile}
@@ -15,7 +15,7 @@ function App() {
         />
       </div>
 
-      <section className="w-[90%] lg:w-[70%] xl:w-10/12 floating relative xl:flex xl:justify-between gap-6 xl:rounded-lg xl:p-4 mt-12 mx-auto xl:bg-white xl:shadow-lg">
+      <section className="w-[90%] lg:w-[70%] xl:w-9/12 relative floating mx-auto mt-12 xl:flex gap-6 xl:justify-between xl:rounded-lg xl:p-4 xl:mt-0 xl:bg-white xl:shadow-lg">
         <MobileNavigation />
         <DesktopNav />
 
