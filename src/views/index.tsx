@@ -10,7 +10,7 @@ const Views = () => {
       {/* <FinishUp /> */}
       <Thanks />
 
-      <FooterNav />
+      {/* <FooterNav /> */}
     </section>
   );
 };
