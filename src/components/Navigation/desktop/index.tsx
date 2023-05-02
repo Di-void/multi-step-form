@@ -11,9 +11,9 @@ const DesktopNav = () => {
         />
       </div>
 
-      <nav className="relative flex flex-col gap-10 px-8 py-10">
+      <nav className="relative flex flex-col gap-8 px-8 py-10">
         <div className="flex gap-6 items-center">
-          <div className="border-2 border-white text-black font-bold bg-light-blue rounded-full p-5 w-3 h-3 flex items-center justify-center">
+          <div className="border border-white text-black font-bold bg-light-blue rounded-full p-4 w-3 h-3 flex items-center justify-center">
             <span>1</span>
           </div>
 
@@ -26,7 +26,7 @@ const DesktopNav = () => {
         </div>
 
         <div className="flex gap-6 items-center">
-          <div className="border-2 border-white font-bold text-white rounded-full p-5 w-3 h-3 flex items-center justify-center">
+          <div className="border border-white font-bold text-white rounded-full p-4 w-3 h-3 flex items-center justify-center">
             <span>2</span>
           </div>
 
@@ -39,7 +39,7 @@ const DesktopNav = () => {
         </div>
 
         <div className="flex gap-6 items-center">
-          <div className="border-2 border-white font-bold text-white rounded-full p-5 w-3 h-3 flex items-center justify-center">
+          <div className="border border-white font-bold text-white rounded-full p-4 w-3 h-3 flex items-center justify-center">
             <span>3</span>
           </div>
 
@@ -50,8 +50,9 @@ const DesktopNav = () => {
             </h1>
           </div>
         </div>
+
         <div className="flex gap-6 items-center">
-          <div className="border-2 border-white font-bold text-white rounded-full p-5 w-3 h-3 flex items-center justify-center">
+          <div className="border border-white font-bold text-white rounded-full p-4 w-3 h-3 flex items-center justify-center">
             <span>4</span>
           </div>
 
