@@ -1,4 +1,5 @@
 import React from "react";
+import FooterNav from "@/components/FooterNav";
 import { Arcade, Advanced, Pro } from "@/components/Icons";
 import Switch from "@/components/Switch";
 
@@ -52,6 +53,8 @@ const PlansForm = () => {
             </div>
           );
         })}
+
+        <FooterNav backBtnIsVisible={true} />
       </form>
 
       <MonthYearToggle />

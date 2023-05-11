@@ -7,7 +7,7 @@ const Summary = () => {
             <h3 className="capitalize font-bold text-marine-blue">
               arcade (monthly)
             </h3>
-            <button className="text-cool-gray underline capitalize">
+            <button className="text-cool-gray underline capitalize hover:text-purplish-blue">
               change
             </button>
           </div>

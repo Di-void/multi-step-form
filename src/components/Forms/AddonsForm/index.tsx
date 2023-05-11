@@ -1,3 +1,5 @@
+import FooterNav from "@/components/FooterNav";
+
 const AddonsForm = () => {
   return (
     <form className="flex flex-col gap-3">
@@ -53,6 +55,8 @@ const AddonsForm = () => {
           </div>
         );
       })}
+
+      <FooterNav backBtnIsVisible={true} />
     </form>
   );
 };

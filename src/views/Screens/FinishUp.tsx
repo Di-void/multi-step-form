@@ -1,4 +1,8 @@
 import Summary from "@/components/Summary";
+import FooterNav from "@/components/FooterNav";
+
+const nxtBtnStyles =
+  "capitalize text-white font-bold bg-purplish-blue hover:opacity-80 transition-all duration-150 px-4 xl:px-6 py-3 rounded-md cursor-pointer";
 
 const FinishUp = () => {
   return (
@@ -14,6 +18,12 @@ const FinishUp = () => {
       </p>
 
       <Summary />
+
+      <FooterNav
+        backBtnIsVisible={true}
+        nextBtnLabel="confirm"
+        nextBtnStyles={nxtBtnStyles}
+      />
     </div>
   );
 };
