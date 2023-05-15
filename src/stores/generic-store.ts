@@ -9,7 +9,8 @@ export const useGenericStore = create<GenericState>((set) => ({
   formIsValid: false,
   billingMode: "monthly",
   setBillingMode: (newMode) => set(() => ({ billingMode: newMode })),
-  plans: "arcade",
+  plan: "arcade",
+  setPlan: (newPlan) => set(() => ({ plan: newPlan })),
   addOns: {
     "oneline-service": false,
     "larger-storage": false,

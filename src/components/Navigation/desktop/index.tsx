@@ -21,7 +21,7 @@ const DesktopNav = () => {
           { label: "step 4", desc: "summary" },
         ].map(({ label, desc }, index) => {
           return (
-            <div className="flex gap-6 items-center">
+            <div key={label} className="flex gap-6 items-center">
               <div
                 className={`border ${
                   page === index

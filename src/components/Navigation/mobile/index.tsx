@@ -7,7 +7,8 @@ const MobileNavigation = () => {
       {["1", "2", "3", "4"].map((number, index) => {
         return (
           <div
-            className={`border-2 ${
+            key={number}
+            className={`border ${
               page === index
                 ? "text-black bg-light-blue border-none"
                 : "border-white"

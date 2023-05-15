@@ -3,50 +3,86 @@ import FooterNav from "@/components/FooterNav";
 import { Arcade, Advanced, Pro } from "@/components/Icons";
 import Switch from "@/components/Switch";
 import { useGenericStore } from "@/stores/generic-store";
+import { BillingMode } from "@/types";
+import type { Plans } from "@/types";
+
+export type MonthYearToggleProps = { billing: BillingMode };
 
 const PlansForm = () => {
+  const billingMode = useGenericStore((state) => state.billingMode);
+  const bill = useGenericStore((state) => state.bills);
+  const plan = useGenericStore((state) => state.plan);
+  const setPlan = useGenericStore((state) => state.setPlan);
+  const nextPage = useGenericStore((state) => state.nextPage);
+
+  const onSubmit = () => {
+    nextPage();
+  };
+
   return (
     <React.Fragment>
-      <form className="flex flex-col xl:flex-row gap-3 xl:justify-evenly">
+      <form
+        className="flex flex-col xl:flex-row gap-3 xl:justify-evenly"
+        onSubmit={onSubmit}
+      >
         {[
           {
             plan: "arcade",
             icon: <Arcade />,
-            fee: 9,
+            fee:
+              billingMode === "monthly"
+                ? `${bill.arcade.monthly}/mo`
+                : `${bill.arcade.yearly}/yr`,
           },
           {
             plan: "advanced",
             icon: <Advanced />,
-            fee: 12,
+            fee:
+              billingMode === "monthly"
+                ? `${bill.advanced.monthly}/mo`
+                : `${bill.advanced.yearly}/yr`,
           },
           {
             plan: "pro",
             icon: <Pro />,
-            fee: 15,
+            fee:
+              billingMode === "monthly"
+                ? `${bill.pro.monthly}/mo`
+                : `${bill.pro.yearly}/yr`,
           },
-        ].map(({ plan, icon, fee }) => {
+        ].map(({ plan: option, icon, fee }) => {
           return (
-            <div key={plan}>
+            <div key={option}>
               <input
                 type="radio"
-                id={plan}
+                id={option}
                 name="plan"
-                value={plan}
+                value={option}
                 className="hidden peer"
                 required
+                checked={option === plan}
+                onChange={(e) => {
+                  setPlan(e.target.value as Plans);
+                }}
               />
               <label
-                htmlFor={plan}
+                htmlFor={option}
                 className="p-4 xl:p-6 flex xl:flex-col gap-3 border border-light-gray hover:border-purplish-blue peer-checked:bg-alabaster peer-checked:border-purplish-blue rounded-md cursor-pointer transition-all duration-300"
               >
                 {icon}
 
                 <div className="xl:mt-8">
                   <h4 className="capitalize text-marine-blue text-lg font-bold">
-                    {plan}
+                    {option}
                   </h4>
-                  <h2 className="text-cool-gray">${fee}/mo</h2>
-                  <p className="text-marine-blue font-medium transition-all duration-300 -mt-0">
+                  <h2 className="text-cool-gray">${fee}</h2>
+                  <p
+                    className={`text-marine-blue font-medium transition-all duration-300 ${
+                      billingMode === "yearly"
+                        ? "-mt-0"
+                        : "-mt-6 opacity-0 pointer-events-none"
+                    }`}
+                  >
                     2 months free
                   </p>
                 </div>
@@ -58,28 +94,27 @@ const PlansForm = () => {
         <FooterNav backBtnIsVisible={true} />
       </form>
 
-      <MonthYearToggle />
+      <MonthYearToggle billing={billingMode} />
     </React.Fragment>
   );
 };
 
-const MonthYearToggle = () => {
-  const billingMode = useGenericStore((state) => state.billingMode);
+const MonthYearToggle = ({ billing }: MonthYearToggleProps) => {
   return (
     <div className="bg-alabaster rounded-lg mt-6 py-4 flex justify-center items-center gap-4 around">
       <h3
         className={`capitalize font-bold text-base transition-all duration-300 ${
-          billingMode === "monthly" ? "text-marine-blue" : "text-cool-gray"
+          billing === "monthly" ? "text-marine-blue" : "text-cool-gray"
         }`}
       >
         monthly
       </h3>
 
-      <Switch />
+      <Switch billing={billing} />
 
       <h3
         className={`capitalize font-bold text-base transition-all duration-300 ${
-          billingMode === "yearly" ? "text-marine-blue" : "text-cool-gray"
+          billing === "yearly" ? "text-marine-blue" : "text-cool-gray"
         }`}
       >
         yearly

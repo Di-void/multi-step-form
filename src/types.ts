@@ -1,5 +1,5 @@
-type BillingMode = "monthly" | "yearly";
-type Plans = "arcade" | "advanced" | "pro";
+export type BillingMode = "monthly" | "yearly";
+export type Plans = "arcade" | "advanced" | "pro";
 type addons = "oneline-service" | "larger-storage" | "customizable-profile";
 type Addons = Record<addons, boolean>;
 
@@ -13,7 +13,8 @@ export interface GenericState {
   formIsValid: boolean;
   billingMode: BillingMode;
   setBillingMode: (mode: BillingMode) => void;
-  plans: Plans;
+  plan: Plans;
+  setPlan: (plan: Plans) => void;
   addOns: Addons;
   bills: Bills;
 }

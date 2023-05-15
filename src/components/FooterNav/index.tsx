@@ -1,3 +1,5 @@
+import { useGenericStore } from "@/stores/generic-store";
+
 interface FooterNavProps {
   backBtnIsVisible: boolean;
   nextBtnStyles?: string;
@@ -12,9 +14,13 @@ const FooterNav = ({
   nextBtnLabel = "next step",
   nextBtnStyles = nextBtnDefaultStyles,
 }: FooterNavProps) => {
+  const prevPage = useGenericStore((state) => state.prevPage);
+
   return (
     <footer className="fixed xl:absolute bottom-0 xl:bottom-3 left-0 w-full p-6 xl:p-0 xl:pl-9 flex justify-between bg-white">
       <button
+        type="button"
+        onClick={prevPage}
         className={`capitalize ${
           backBtnIsVisible ? "" : "invisible"
         } text-cool-gray hover:text-marine-blue transition-all duration-150 font-bold`}
