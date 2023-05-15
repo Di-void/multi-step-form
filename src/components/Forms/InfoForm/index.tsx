@@ -63,7 +63,9 @@ const InfoForm = () => {
                 </h4>
               </header>
               <input
-                className="block border border-cool-gray focus:border-purplish-blue mt-1 p-3 rounded-md text-marine-blue font-bold w-full outline-none"
+                className={`block border ${
+                  errors[item.id] ? "border-strawberry-red" : "border-cool-gray"
+                } mt-1 p-3 rounded-md text-marine-blue font-bold w-full outline-none`}
                 type={item.type}
                 id={item.id}
                 placeholder={item.placeholder}
