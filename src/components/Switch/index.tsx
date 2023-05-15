@@ -1,7 +1,15 @@
+import { useGenericStore } from "@/stores/generic-store";
 import { useState } from "react";
 
 const Switch = () => {
   const [toggle, setToggle] = useState(false);
+  const setBillingMode = useGenericStore((state) => state.setBillingMode);
+
+  if (toggle === false) {
+    setBillingMode("monthly");
+  } else {
+    setBillingMode("yearly");
+  }
 
   return (
     <div className="h-fit">

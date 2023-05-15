@@ -78,7 +78,7 @@ const InfoForm = () => {
 
         <FooterNav backBtnIsVisible={false} />
       </form>
-      // TODO Remove Devtool after project completion
+      {/* // TODO Remove Devtool after project completion */}
       <DevTool control={control} />
     </>
   );

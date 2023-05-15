@@ -2,6 +2,7 @@ import React from "react";
 import FooterNav from "@/components/FooterNav";
 import { Arcade, Advanced, Pro } from "@/components/Icons";
 import Switch from "@/components/Switch";
+import { useGenericStore } from "@/stores/generic-store";
 
 const PlansForm = () => {
   return (
@@ -63,15 +64,26 @@ const PlansForm = () => {
 };
 
 const MonthYearToggle = () => {
+  const billingMode = useGenericStore((state) => state.billingMode);
   return (
     <div className="bg-alabaster rounded-lg mt-6 py-4 flex justify-center items-center gap-4 around">
-      <h3 className="capitalize font-bold text-base text-marine-blue">
+      <h3
+        className={`capitalize font-bold text-base transition-all duration-300 ${
+          billingMode === "monthly" ? "text-marine-blue" : "text-cool-gray"
+        }`}
+      >
         monthly
       </h3>
 
       <Switch />
 
-      <h3 className="capitalize font-bold text-base text-cool-gray">yearly</h3>
+      <h3
+        className={`capitalize font-bold text-base transition-all duration-300 ${
+          billingMode === "yearly" ? "text-marine-blue" : "text-cool-gray"
+        }`}
+      >
+        yearly
+      </h3>
     </div>
   );
 };

@@ -8,6 +8,7 @@ export const useGenericStore = create<GenericState>((set) => ({
   setPage: (page) => set(() => ({ page })),
   formIsValid: false,
   billingMode: "monthly",
+  setBillingMode: (newMode) => set(() => ({ billingMode: newMode })),
   plans: "arcade",
   addOns: {
     "oneline-service": false,

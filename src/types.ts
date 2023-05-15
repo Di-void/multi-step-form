@@ -12,6 +12,7 @@ export interface GenericState {
   setPage: (page: number) => void;
   formIsValid: boolean;
   billingMode: BillingMode;
+  setBillingMode: (mode: BillingMode) => void;
   plans: Plans;
   addOns: Addons;
   bills: Bills;
