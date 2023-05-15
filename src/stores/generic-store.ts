@@ -3,6 +3,9 @@ import type { GenericState } from "@/types";
 
 export const useGenericStore = create<GenericState>((set) => ({
   page: 0,
+  nextPage: () => set((state) => ({ page: state.page + 1 })),
+  prevPage: () => set((state) => ({ page: state.page - 1 })),
+  setPage: (page) => set(() => ({ page })),
   formIsValid: false,
   billingMode: "monthly",
   plans: "arcade",

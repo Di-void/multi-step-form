@@ -7,6 +7,9 @@ type Bills = Record<addons | Plans, Record<BillingMode, number>>;
 
 export interface GenericState {
   page: number;
+  nextPage: () => void;
+  prevPage: () => void;
+  setPage: (page: number) => void;
   formIsValid: boolean;
   billingMode: BillingMode;
   plans: Plans;
