@@ -13,7 +13,7 @@ const FooterNav = ({
   nextBtnStyles = nextBtnDefaultStyles,
 }: FooterNavProps) => {
   return (
-    <footer className="fixed xl:absolute bottom-3 left-0 w-full p-6 xl:p-0 xl:pl-9 flex justify-between bg-white">
+    <footer className="fixed xl:absolute bottom-0 xl:bottom-3 left-0 w-full p-6 xl:p-0 xl:pl-9 flex justify-between bg-white">
       <button
         className={`capitalize ${
           backBtnIsVisible ? "" : "invisible"
@@ -21,7 +21,9 @@ const FooterNav = ({
       >
         go back
       </button>
-      <button className={nextBtnStyles}>{nextBtnLabel}</button>
+      <button type="submit" className={nextBtnStyles}>
+        {nextBtnLabel}
+      </button>
     </footer>
   );
 };

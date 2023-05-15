@@ -1,29 +1,48 @@
+import { useForm } from "react-hook-form";
+import { PersonalInfoForm } from "@/lib";
 import FooterNav from "@/components/FooterNav";
+import { DevTool } from "@hookform/devtools";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { z } from "zod";
+
+const schema = z.object({
+  name: z.string().nonempty("This field is required"),
+  email: z
+    .string()
+    .nonempty("This field is required")
+    .email("Email format is not valid"),
+  telephone: z.number({
+    required_error: "Phone Number is required",
+    invalid_type_error: "Enter a valid Number",
+  }),
+});
 
 const InfoForm = () => {
+  const form = useForm<FormData>({
+    resolver: zodResolver(schema),
+    defaultValues: {
+      name: "",
+      email: "",
+      telephone: undefined,
+    },
+  });
+  const {
+    register,
+    control,
+    formState: { errors, isValid },
+    handleSubmit,
+  } = form;
+
+  type FormData = z.infer<typeof schema>;
+
+  const onSubmit = (data: FormData) => {
+    console.log(data);
+  };
+
   return (
     <>
-      <form className="flex flex-col gap-4">
-        {[
-          {
-            id: "name",
-            field: "name",
-            placeholder: "e.g. Stephen King",
-            type: "text",
-          },
-          {
-            id: "email",
-            field: "email address",
-            placeholder: "e.g. stephenking@lorem.com",
-            type: "email",
-          },
-          {
-            id: "telephone",
-            field: "phone number",
-            placeholder: "e.g. +1 234 567 890",
-            type: "number",
-          },
-        ].map((item) => {
+      <form className="flex flex-col gap-4" onSubmit={handleSubmit(onSubmit)}>
+        {PersonalInfoForm.map((item) => {
           return (
             <div key={item.id}>
               <header className="flex justify-between">
@@ -34,13 +53,18 @@ const InfoForm = () => {
                   {item.field}
                 </label>
 
-                <h4 className="text-strawberry-red capitalize font-bold"></h4>
+                <h4 className="text-strawberry-red capitalize font-bold">
+                  {errors[item.id]?.message}
+                </h4>
               </header>
               <input
                 className="block border border-cool-gray focus:border-purplish-blue mt-1 p-3 rounded-md text-marine-blue font-bold w-full outline-none"
                 type={item.type}
                 id={item.id}
                 placeholder={item.placeholder}
+                {...register(item.id, {
+                  valueAsNumber: item.type === "number" ? true : false,
+                })}
               />
             </div>
           );
@@ -48,6 +72,7 @@ const InfoForm = () => {
 
         <FooterNav backBtnIsVisible={false} />
       </form>
+      <DevTool control={control} />
     </>
   );
 };
