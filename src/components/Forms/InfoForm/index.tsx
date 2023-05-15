@@ -18,6 +18,8 @@ const schema = z.object({
   }),
 });
 
+type FormData = z.infer<typeof schema>;
+
 const InfoForm = () => {
   const nextPage = useGenericStore((state) => state.nextPage);
   const form = useForm<FormData>({
@@ -35,11 +37,8 @@ const InfoForm = () => {
     handleSubmit,
   } = form;
 
-  type FormData = z.infer<typeof schema>;
-
-  const onSubmit = (data: FormData) => {
+  const onSubmit = () => {
     if (isValid) {
-      console.log(data);
       nextPage();
     }
   };
@@ -79,6 +78,7 @@ const InfoForm = () => {
 
         <FooterNav backBtnIsVisible={false} />
       </form>
+      // TODO Remove Devtool after project completion
       <DevTool control={control} />
     </>
   );
