@@ -1,6 +1,8 @@
 import bg_desktop from "@/assets/images/bg-sidebar-desktop.svg";
+import { useGenericStore } from "@/stores/generic-store";
 
 const DesktopNav = () => {
+  const page = useGenericStore((state) => state.page);
   return (
     <section className="relative hidden xl:block w-[30%] overflow-hidden rounded-lg">
       <div className="absolute w-full h-full">
@@ -12,20 +14,35 @@ const DesktopNav = () => {
       </div>
 
       <nav className="relative flex flex-col gap-8 px-8 py-10">
-        <div className="flex gap-6 items-center">
-          <div className="border border-white text-black font-bold bg-light-blue rounded-full p-4 w-3 h-3 flex items-center justify-center">
-            <span>1</span>
-          </div>
+        {[
+          { label: "step 1", desc: "your info" },
+          { label: "step 2", desc: "select plan" },
+          { label: "step 3", desc: "add-ons" },
+          { label: "step 4", desc: "summary" },
+        ].map(({ label, desc }, index) => {
+          return (
+            <div className="flex gap-6 items-center">
+              <div
+                className={`border ${
+                  page === index
+                    ? "text-black bg-light-blue border-none"
+                    : "border-white text-white"
+                } font-bold rounded-full p-4 w-3 h-3 flex items-center justify-center`}
+              >
+                <span>{index + 1}</span>
+              </div>
 
-          <div>
-            <h4 className="text-pastel-blue text-sm uppercase">step 1</h4>
-            <h1 className="uppercase text-white tracking-wide font-semibold">
-              your info
-            </h1>
-          </div>
-        </div>
+              <div>
+                <h4 className="text-pastel-blue text-sm uppercase">{label}</h4>
+                <h1 className="uppercase text-white tracking-wide font-semibold">
+                  {desc}
+                </h1>
+              </div>
+            </div>
+          );
+        })}
 
-        <div className="flex gap-6 items-center">
+        {/* <div className="flex gap-6 items-center">
           <div className="border border-white font-bold text-white rounded-full p-4 w-3 h-3 flex items-center justify-center">
             <span>2</span>
           </div>
@@ -36,9 +53,9 @@ const DesktopNav = () => {
               select plan
             </h1>
           </div>
-        </div>
+        </div> */}
 
-        <div className="flex gap-6 items-center">
+        {/* <div className="flex gap-6 items-center">
           <div className="border border-white font-bold text-white rounded-full p-4 w-3 h-3 flex items-center justify-center">
             <span>3</span>
           </div>
@@ -49,9 +66,9 @@ const DesktopNav = () => {
               add-ons
             </h1>
           </div>
-        </div>
+        </div> */}
 
-        <div className="flex gap-6 items-center">
+        {/* <div className="flex gap-6 items-center">
           <div className="border border-white font-bold text-white rounded-full p-4 w-3 h-3 flex items-center justify-center">
             <span>4</span>
           </div>
@@ -62,7 +79,7 @@ const DesktopNav = () => {
               summary
             </h1>
           </div>
-        </div>
+        </div> */}
       </nav>
     </section>
   );
