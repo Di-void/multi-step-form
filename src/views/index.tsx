@@ -11,7 +11,7 @@ const Views = () => {
         <Plans />
       ) : page === 2 ? (
         <Addons />
-      ) : page === 3 ? (
+      ) : page >= 3 ? (
         <FinishUp />
       ) : (
         <Thanks />
