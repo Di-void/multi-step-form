@@ -63,8 +63,10 @@ const InfoForm = () => {
               </header>
               <input
                 className={`block border ${
-                  errors[item.id] ? "border-strawberry-red" : "border-cool-gray"
-                } mt-1 p-3 rounded-md text-marine-blue font-bold w-full outline-none`}
+                  errors[item.id]
+                    ? "border-strawberry-red focus:ring-strawberry-red focus:border-strawberry-red"
+                    : "border-cool-gray focus:ring-purplish-blue focus:border-purplish-blue"
+                } mt-1 p-3 rounded-md text-marine-blue font-bold w-full outline-none focus:ring-1`}
                 type={item.type}
                 id={item.id}
                 placeholder={item.placeholder}

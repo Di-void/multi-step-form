@@ -27,7 +27,7 @@ const AddonsForm = () => {
           <div key={addon.id} className="relative">
             <input
               type="checkbox"
-              className="absolute top-[40%] left-4 lg:left-3 peer w-5 h-5 border-light-gray rounded text-purplish-blue focus:ring-offset-0 focus:ring-0"
+              className="absolute top-[40%] left-4 lg:left-3 peer w-5 h-5 border-light-gray rounded form-checkbox text-purplish-blue focus:ring-offset-0 focus:ring-0"
               value=""
               name="addons"
               id={addon.id}
