@@ -18,8 +18,8 @@ const DesktopNav = ({ page }: Page) => {
           { label: "step 2", desc: "select plan" },
           { label: "step 3", desc: "add-ons" },
           { label: "step 4", desc: "summary" },
-        ].map(({ label, desc }, index) => {
-          if (index === 3) {
+        ].map(({ label, desc }, index, arr) => {
+          if (index === arr.length - 1) {
             <div key={label} className="flex gap-6 items-center">
               <div
                 className={`border ${

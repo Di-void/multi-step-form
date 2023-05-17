@@ -3,8 +3,8 @@ import type { Page } from "@/App";
 const MobileNavigation = ({ page }: Page) => {
   return (
     <section className="text-white font-bold w-2/3 lg:w-3/4 mx-auto flex justify-between xl:hidden">
-      {["1", "2", "3", "4"].map((number, index) => {
-        if (index === 3) {
+      {["1", "2", "3", "4"].map((number, index, arr) => {
+        if (index === arr.length - 1) {
           return (
             <div
               key={number}
