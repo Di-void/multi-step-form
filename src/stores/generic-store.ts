@@ -1,7 +1,7 @@
 import { create } from "zustand";
 import type { GenericState } from "@/types";
 
-export const useGenericStore = create<GenericState>((set) => ({
+export const useStore = create<GenericState>((set) => ({
   page: 0,
   nextPage: () => set((state) => ({ page: state.page + 1 })),
   prevPage: () => set((state) => ({ page: state.page - 1 })),

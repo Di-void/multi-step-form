@@ -1,19 +1,25 @@
 import React from "react";
+import { shallow } from "zustand/shallow";
 import FooterNav from "@/components/FooterNav";
 import { Arcade, Advanced, Pro } from "@/components/Icons";
 import Switch from "@/components/Switch";
-import { useGenericStore } from "@/stores/generic-store";
+import { useStore } from "@/stores/generic-store";
 import { BillingMode } from "@/types";
 import type { Plans } from "@/types";
 
 export type MonthYearToggleProps = { billing: BillingMode };
 
 const PlansForm = () => {
-  const billingMode = useGenericStore((state) => state.billingMode);
-  const bill = useGenericStore((state) => state.bills);
-  const plan = useGenericStore((state) => state.plan);
-  const setPlan = useGenericStore((state) => state.setPlan);
-  const nextPage = useGenericStore((state) => state.nextPage);
+  const { billingMode, bill, plan, nextPage, setPlan } = useStore(
+    (state) => ({
+      billingMode: state.billingMode,
+      bill: state.bills,
+      plan: state.plan,
+      setPlan: state.setPlan,
+      nextPage: state.nextPage,
+    }),
+    shallow
+  );
 
   const onSubmit = () => {
     nextPage();

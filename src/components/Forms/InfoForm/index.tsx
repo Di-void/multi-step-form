@@ -1,5 +1,5 @@
 import { useForm } from "react-hook-form";
-import { useGenericStore } from "@/stores/generic-store";
+import { useStore } from "@/stores/generic-store";
 import { PersonalInfoForm } from "@/lib";
 import FooterNav from "@/components/FooterNav";
 import { DevTool } from "@hookform/devtools";
@@ -21,7 +21,7 @@ const schema = z.object({
 type FormData = z.infer<typeof schema>;
 
 const InfoForm = () => {
-  const nextPage = useGenericStore((state) => state.nextPage);
+  const nextPage = useStore((state) => state.nextPage);
   const form = useForm<FormData>({
     resolver: zodResolver(schema),
     defaultValues: {

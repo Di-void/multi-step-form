@@ -1,10 +1,10 @@
-import { useGenericStore } from "@/stores/generic-store";
+import { useStore } from "@/stores/generic-store";
 import { useState } from "react";
 import type { MonthYearToggleProps } from "../Forms/PlansForm";
 
 const Switch = ({ billing }: MonthYearToggleProps) => {
   const toggleState = billing === "monthly" ? false : true;
-  const setBillingMode = useGenericStore((state) => state.setBillingMode);
+  const setBillingMode = useStore((state) => state.setBillingMode);
   const [toggle, setToggle] = useState(toggleState);
 
   const handleToggleStateChange = () => {

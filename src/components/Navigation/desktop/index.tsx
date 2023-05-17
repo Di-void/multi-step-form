@@ -1,8 +1,7 @@
 import bg_desktop from "@/assets/images/bg-sidebar-desktop.svg";
-import { useGenericStore } from "@/stores/generic-store";
+import type { Page } from "@/App";
 
-const DesktopNav = () => {
-  const page = useGenericStore((state) => state.page);
+const DesktopNav = ({ page }: Page) => {
   return (
     <section className="relative hidden xl:block w-[30%] overflow-hidden rounded-lg">
       <div className="absolute w-full h-full">

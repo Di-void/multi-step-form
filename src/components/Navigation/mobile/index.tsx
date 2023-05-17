@@ -1,7 +1,6 @@
-import { useGenericStore } from "@/stores/generic-store";
+import type { Page } from "@/App";
 
-const MobileNavigation = () => {
-  const page = useGenericStore((state) => state.page);
+const MobileNavigation = ({ page }: Page) => {
   return (
     <section className="text-white font-bold w-2/3 lg:w-3/4 mx-auto flex justify-between xl:hidden">
       {["1", "2", "3", "4"].map((number, index) => {
