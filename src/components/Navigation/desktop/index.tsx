@@ -19,6 +19,26 @@ const DesktopNav = ({ page }: Page) => {
           { label: "step 3", desc: "add-ons" },
           { label: "step 4", desc: "summary" },
         ].map(({ label, desc }, index) => {
+          if (index === 3) {
+            <div key={label} className="flex gap-6 items-center">
+              <div
+                className={`border ${
+                  page >= index
+                    ? "text-black bg-light-blue border-transparent"
+                    : "border-white text-white"
+                } font-bold rounded-full p-4 w-3 h-3 flex items-center justify-center`}
+              >
+                <span>{index + 1}</span>
+              </div>
+
+              <div>
+                <h4 className="text-pastel-blue text-sm uppercase">{label}</h4>
+                <h1 className="uppercase text-white tracking-wide font-semibold">
+                  {desc}
+                </h1>
+              </div>
+            </div>;
+          }
           return (
             <div key={label} className="flex gap-6 items-center">
               <div
@@ -40,45 +60,6 @@ const DesktopNav = ({ page }: Page) => {
             </div>
           );
         })}
-
-        {/* <div className="flex gap-6 items-center">
-          <div className="border border-white font-bold text-white rounded-full p-4 w-3 h-3 flex items-center justify-center">
-            <span>2</span>
-          </div>
-
-          <div>
-            <h4 className="text-pastel-blue text-sm uppercase">step 2</h4>
-            <h1 className="uppercase text-white tracking-wide font-semibold">
-              select plan
-            </h1>
-          </div>
-        </div> */}
-
-        {/* <div className="flex gap-6 items-center">
-          <div className="border border-white font-bold text-white rounded-full p-4 w-3 h-3 flex items-center justify-center">
-            <span>3</span>
-          </div>
-
-          <div>
-            <h4 className="text-pastel-blue text-sm uppercase">step 3</h4>
-            <h1 className="uppercase text-white tracking-wide font-semibold">
-              add-ons
-            </h1>
-          </div>
-        </div> */}
-
-        {/* <div className="flex gap-6 items-center">
-          <div className="border border-white font-bold text-white rounded-full p-4 w-3 h-3 flex items-center justify-center">
-            <span>4</span>
-          </div>
-
-          <div>
-            <h4 className="text-pastel-blue text-sm uppercase">step 4</h4>
-            <h1 className="uppercase text-white tracking-wide font-semibold">
-              summary
-            </h1>
-          </div>
-        </div> */}
       </nav>
     </section>
   );

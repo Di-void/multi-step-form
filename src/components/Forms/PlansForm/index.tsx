@@ -1,4 +1,3 @@
-import React from "react";
 import { shallow } from "zustand/shallow";
 import FooterNav from "@/components/FooterNav";
 import { Arcade, Advanced, Pro } from "@/components/Icons";
@@ -26,7 +25,7 @@ const PlansForm = () => {
   };
 
   return (
-    <React.Fragment>
+    <>
       <form
         className="flex flex-col xl:flex-row gap-3 xl:justify-evenly"
         onSubmit={onSubmit}
@@ -101,7 +100,7 @@ const PlansForm = () => {
       </form>
 
       <MonthYearToggle billing={billingMode} />
-    </React.Fragment>
+    </>
   );
 };
 
