@@ -1,22 +1,15 @@
 import { useStore } from "@/stores/generic-store";
-import { useState } from "react";
 import type { MonthYearToggleProps } from "../Forms/PlansForm";
 
 const Switch = ({ billing }: MonthYearToggleProps) => {
-  const toggleState = billing === "monthly" ? false : true;
   const setBillingMode = useStore((state) => state.setBillingMode);
-  const [toggle, setToggle] = useState(toggleState);
 
   const handleToggleStateChange = () => {
-    setToggle((oldState) => {
-      if (oldState === false) {
-        setBillingMode("yearly");
-        return true;
-      } else {
-        setBillingMode("monthly");
-        return false;
-      }
-    });
+    if (billing === "monthly") {
+      setBillingMode("yearly");
+    } else {
+      setBillingMode("monthly");
+    }
   };
 
   return (
@@ -25,7 +18,7 @@ const Switch = ({ billing }: MonthYearToggleProps) => {
         type="checkbox"
         id="toggle"
         className="hidden peer"
-        checked={toggle}
+        checked={billing === "yearly"}
         readOnly
       />
       <label
