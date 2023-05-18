@@ -1,10 +1,14 @@
+// Re-usables
 export type BillingMode = "monthly" | "yearly";
 export type Plans = "arcade" | "advanced" | "pro";
-type addons = "oneline-service" | "larger-storage" | "customizable-profile";
+export type addons =
+  | "oneline-service"
+  | "larger-storage"
+  | "customizable-profile";
+
+// Store-specific
 type Addons = Record<addons, boolean>;
-
 type Bills = Record<addons | Plans, Record<BillingMode, number>>;
-
 export interface GenericState {
   page: number;
   nextPage: () => void;

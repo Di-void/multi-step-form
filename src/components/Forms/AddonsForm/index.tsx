@@ -1,41 +1,12 @@
 import FooterNav from "@/components/FooterNav";
-import { useStore } from "@/stores/generic-store";
+import useAddons from "@/hooks/useAddons";
 
 const AddonsForm = () => {
-  const bill = useStore((state) => state.bills);
-  const billingMode = useStore((state) => state.billingMode);
+  const { Addons } = useAddons();
 
   return (
     <form className="flex flex-col gap-3">
-      {[
-        {
-          id: "a1",
-          label: "Online service",
-          description: "Access to multiplayer games",
-          price:
-            billingMode === "monthly"
-              ? `${bill["oneline-service"].monthly}/mo`
-              : `${bill["oneline-service"].yearly}/yr`,
-        },
-        {
-          id: "a2",
-          label: "Larger storage",
-          description: "Extra 1TB of cloud save",
-          price:
-            billingMode === "monthly"
-              ? `${bill["larger-storage"].monthly}/mo`
-              : `${bill["larger-storage"].yearly}/yr`,
-        },
-        {
-          id: "a3",
-          label: "Customizable profile",
-          description: "Custom theme on your profile",
-          price:
-            billingMode === "monthly"
-              ? `${bill["customizable-profile"].monthly}/mo`
-              : `${bill["customizable-profile"].yearly}/yr`,
-        },
-      ].map((addon) => {
+      {Addons.map((addon) => {
         return (
           <div key={addon.id} className="relative">
             <input
