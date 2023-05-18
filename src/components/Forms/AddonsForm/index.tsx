@@ -1,6 +1,10 @@
 import FooterNav from "@/components/FooterNav";
+import { useStore } from "@/stores/generic-store";
 
 const AddonsForm = () => {
+  const bill = useStore((state) => state.bills);
+  const billingMode = useStore((state) => state.billingMode);
+
   return (
     <form className="flex flex-col gap-3">
       {[
@@ -8,19 +12,28 @@ const AddonsForm = () => {
           id: "a1",
           label: "Online service",
           description: "Access to multiplayer games",
-          price: 1,
+          price:
+            billingMode === "monthly"
+              ? `${bill["oneline-service"].monthly}/mo`
+              : `${bill["oneline-service"].yearly}/yr`,
         },
         {
           id: "a2",
           label: "Larger storage",
           description: "Extra 1TB of cloud save",
-          price: 2,
+          price:
+            billingMode === "monthly"
+              ? `${bill["larger-storage"].monthly}/mo`
+              : `${bill["larger-storage"].yearly}/yr`,
         },
         {
           id: "a3",
           label: "Customizable profile",
           description: "Custom theme on your profile",
-          price: 2,
+          price:
+            billingMode === "monthly"
+              ? `${bill["customizable-profile"].monthly}/mo`
+              : `${bill["customizable-profile"].yearly}/yr`,
         },
       ].map((addon) => {
         return (
@@ -49,7 +62,7 @@ const AddonsForm = () => {
                   </p>
                 </div>
 
-                <h2 className="text-purplish-blue">+${addon.price}/mo</h2>
+                <h2 className="text-purplish-blue">+${addon.price}</h2>
               </div>
             </label>
           </div>
