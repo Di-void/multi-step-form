@@ -5,6 +5,7 @@ import Switch from "@/components/Switch";
 import { useStore } from "@/stores/generic-store";
 import { BillingMode } from "@/types";
 import type { Plans } from "@/types";
+import React from "react";
 
 export type MonthYearToggleProps = { billing: BillingMode };
 
@@ -20,7 +21,8 @@ const PlansForm = () => {
     shallow
   );
 
-  const onSubmit = () => {
+  const onSubmit = (e: React.SyntheticEvent) => {
+    e.preventDefault();
     nextPage();
   };
 
