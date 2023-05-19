@@ -40,8 +40,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [Solution on Frontend Mentor](https://www.frontendmentor.io/solutions/advanced-multistep-form-w-reacttstailwindcss-XTPp0zjE0G)
+- Live Site URL: [Click Me and See ^\_~](https://advanced-form.netlify.app)
 
 ## My process
 
