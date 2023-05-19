@@ -51,6 +51,7 @@ Users should be able to:
 - CSS custom properties
 - Flexbox
 - Mobile-first workflow
+- [Zustand](https://github.com/pmndrs/zustand) - For state management
 - [React](https://reactjs.org/) - JS library
 - [TailwindCSS](https://tailwindcss.com/docs/installation) - For styles
 
