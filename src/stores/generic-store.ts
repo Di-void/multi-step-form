@@ -6,7 +6,6 @@ export const useStore = create<GenericState>((set) => ({
   nextPage: () => set((state) => ({ page: state.page + 1 })),
   prevPage: () => set((state) => ({ page: state.page - 1 })),
   setPage: (page) => set(() => ({ page })),
-  formIsValid: false,
   billingMode: "monthly",
   setBillingMode: (newMode) => set(() => ({ billingMode: newMode })),
   plan: "arcade",

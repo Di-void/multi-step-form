@@ -14,7 +14,6 @@ export interface GenericState {
   nextPage: () => void;
   prevPage: () => void;
   setPage: (page: number) => void;
-  formIsValid: boolean;
   billingMode: BillingMode;
   setBillingMode: (mode: BillingMode) => void;
   plan: Plans;
