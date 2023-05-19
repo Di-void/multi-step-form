@@ -10,10 +10,12 @@ interface IAddon {
 }
 
 const useAddons = () => {
-  const { bill, billingMode } = useStore(
+  const { bill, billingMode, updateAddon, addOns } = useStore(
     (state) => ({
       bill: state.bills,
       billingMode: state.billingMode,
+      updateAddon: state.updateAddon,
+      addOns: state.addOns,
     }),
     shallow
   );
@@ -46,7 +48,7 @@ const useAddons = () => {
           : `${bill["customizable-profile"].yearly}/yr`,
     },
   ];
-  return { Addons };
+  return { Addons, addOns, updateAddon };
 };
 
 export default useAddons;

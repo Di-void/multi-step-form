@@ -2,7 +2,7 @@ import FooterNav from "@/components/FooterNav";
 import useAddons from "@/hooks/useAddons";
 
 const AddonsForm = () => {
-  const { Addons } = useAddons();
+  const { Addons, updateAddon, addOns } = useAddons();
 
   return (
     <form className="flex flex-col gap-3">
@@ -12,9 +12,12 @@ const AddonsForm = () => {
             <input
               type="checkbox"
               className="absolute top-[40%] left-4 lg:left-3 peer w-5 h-5 border-light-gray rounded form-checkbox text-purplish-blue focus:ring-offset-0 focus:ring-0"
-              value=""
               name="addons"
               id={addon.id}
+              checked={addOns[addon.id]}
+              onChange={() => {
+                updateAddon(addon.id);
+              }}
             />
             <label
               htmlFor={addon.id}

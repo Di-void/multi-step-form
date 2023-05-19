@@ -16,6 +16,10 @@ export const useStore = create<GenericState>((set) => ({
     "larger-storage": false,
     "customizable-profile": false,
   },
+  updateAddon: (addon) =>
+    set((state) => ({
+      addOns: { ...state.addOns, [addon]: !state.addOns[addon] },
+    })),
   bills: {
     "oneline-service": {
       monthly: 1,

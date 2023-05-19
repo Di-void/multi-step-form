@@ -20,5 +20,6 @@ export interface GenericState {
   plan: Plans;
   setPlan: (plan: Plans) => void;
   addOns: Addons;
+  updateAddon: (addon: addons) => void;
   bills: Bills;
 }
