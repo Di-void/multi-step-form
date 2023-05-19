@@ -3,7 +3,7 @@ import { shallow } from "zustand/shallow";
 import type { IAddon } from "@/types";
 
 export const useAddons = () => {
-  const { bill, billingMode, updateAddon, addOnsCheckedState, nextPage } =
+  const { bill, billingMode, updateAddon, addOnsCheckedState, nextPage, plan } =
     useStore(
       (state) => ({
         bill: state.bills,
@@ -11,6 +11,7 @@ export const useAddons = () => {
         updateAddon: state.updateAddon,
         addOnsCheckedState: state.addOns,
         nextPage: state.nextPage,
+        plan: state.plan,
       }),
       shallow
     );
@@ -43,5 +44,13 @@ export const useAddons = () => {
           : `${bill["customizable-profile"].yearly}/yr`,
     },
   ];
-  return { Addons, addOnsCheckedState, updateAddon, nextPage };
+  return {
+    Addons,
+    addOnsCheckedState,
+    updateAddon,
+    nextPage,
+    plan,
+    billingMode,
+    bill,
+  };
 };

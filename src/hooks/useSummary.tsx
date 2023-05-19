@@ -1,20 +1,28 @@
-import { useStore } from "@/stores/generic-store";
-import { shallow } from "zustand/shallow";
-import type { IAddon } from "@/types";
+import { useAddons } from "./useAddons";
+import type { IAddon, FilteredAddons } from "@/types";
 
 export const useSummary = () => {
-  const { billingMode, bills, plan } = useStore(
-    (state) => ({
-      billingMode: state.billingMode,
-      bills: state.bills,
-      plan: state.plan,
-    }),
-    shallow
-  );
+  const {
+    addOnsCheckedState,
+    Addons,
+    bill: bills,
+    billingMode,
+    plan,
+  } = useAddons();
 
   const finalPlanPrice: IAddon["price"] = `${bills[plan][billingMode]}${
     billingMode === "monthly" ? "/mo" : "/yr"
   }`;
 
-  return { finalPlanPrice, billingMode, plan };
+  const AddonsSummary = Addons.reduce(
+    (acc: FilteredAddons[], { id, label, price }) => {
+      if (addOnsCheckedState[id]) {
+        acc.push({ id, label, price });
+      }
+      return acc;
+    },
+    []
+  );
+
+  return { finalPlanPrice, AddonsSummary };
 };

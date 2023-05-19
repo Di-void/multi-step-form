@@ -1,13 +1,12 @@
 import Summary from "@/components/Summary";
+import { useAddons } from "@/hooks";
 import FooterNav from "@/components/FooterNav";
-import { useSummary } from "@/hooks";
 
 const nxtBtnStyles =
   "capitalize text-white font-bold bg-purplish-blue hover:opacity-80 transition-all duration-150 px-4 xl:px-6 py-3 rounded-md cursor-pointer";
 
 const FinishUp = () => {
-  const { finalPlanPrice, billingMode, plan } = useSummary();
-
+  const { billingMode, plan } = useAddons();
   return (
     <div>
       <header className="mb-2">
@@ -20,7 +19,7 @@ const FinishUp = () => {
         Double-check everything looks OK before confirming.
       </p>
 
-      <Summary price={finalPlanPrice} billingMode={billingMode} plan={plan} />
+      <Summary billingMode={billingMode} plan={plan} />
 
       <FooterNav
         backBtnIsVisible={true}

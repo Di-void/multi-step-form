@@ -5,6 +5,7 @@ export type addons =
   | "oneline-service"
   | "larger-storage"
   | "customizable-profile";
+export type FilteredAddons = Pick<IAddon, "id" | "label" | "price">;
 export interface IAddon {
   id: addons;
   label: string;

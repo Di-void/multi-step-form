@@ -1,11 +1,17 @@
-import type { BillingMode, Plans, IAddon } from "@/types";
-interface SummaryProps {
-  billingMode: BillingMode;
-  plan: Plans;
-  price: IAddon["price"];
+import type { FilteredAddons, Plans, BillingMode } from "@/types";
+import { useSummary } from "@/hooks";
+
+interface AddonDetailsProps {
+  arr: FilteredAddons[];
 }
 
-const Summary = ({ billingMode, plan, price }: SummaryProps) => {
+interface SummaryProps {
+  plan: Plans;
+  billingMode: BillingMode;
+}
+
+const Summary = ({ plan, billingMode }: SummaryProps) => {
+  const { finalPlanPrice, AddonsSummary } = useSummary();
   return (
     <section>
       <div className="bg-alabaster p-4 flex flex-col gap-4 rounded-md">
@@ -19,18 +25,10 @@ const Summary = ({ billingMode, plan, price }: SummaryProps) => {
             </button>
           </div>
 
-          <h3 className="text-marine-blue font-bold">${price}</h3>
+          <h3 className="text-marine-blue font-bold">${finalPlanPrice}</h3>
         </header>
 
-        <div className="flex justify-between items-center">
-          <h3 className="text-cool-gray">Online service</h3>
-          <span className="text-marine-blue font-medium">+$1/mo</span>
-        </div>
-
-        <div className="flex justify-between items-center">
-          <h3 className="text-cool-gray">Larger storage</h3>
-          <span className="text-marine-blue font-medium">+$2/mo</span>
-        </div>
+        <AddonsDetails arr={AddonsSummary} />
       </div>
 
       <footer className="flex justify-between items-center px-4 mt-6">
@@ -42,3 +40,21 @@ const Summary = ({ billingMode, plan, price }: SummaryProps) => {
 };
 
 export default Summary;
+
+const AddonsDetails = ({ arr }: AddonDetailsProps) => {
+  if (arr.length === 0) {
+    return <div>No addons</div>;
+  }
+  return (
+    <>
+      {arr.map((item) => {
+        return (
+          <div key={item.id} className="flex justify-between items-center">
+            <h3 className="text-cool-gray">{item.label}</h3>
+            <span className="text-marine-blue font-medium">+${item.price}</span>
+          </div>
+        );
+      })}
+    </>
+  );
+};
