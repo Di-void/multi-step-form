@@ -1,5 +1,5 @@
 import FooterNav from "@/components/FooterNav";
-import useAddons from "@/hooks/useAddons";
+import { useAddons } from "@/hooks";
 
 const AddonsForm = () => {
   const { Addons, updateAddon, addOnsCheckedState, nextPage } = useAddons();

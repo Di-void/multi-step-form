@@ -2,7 +2,7 @@ import { useStore } from "@/stores/generic-store";
 import { shallow } from "zustand/shallow";
 import type { IAddon } from "@/types";
 
-const useAddons = () => {
+export const useAddons = () => {
   const { bill, billingMode, updateAddon, addOnsCheckedState, nextPage } =
     useStore(
       (state) => ({
@@ -45,5 +45,3 @@ const useAddons = () => {
   ];
   return { Addons, addOnsCheckedState, updateAddon, nextPage };
 };
-
-export default useAddons;
