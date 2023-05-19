@@ -11,7 +11,7 @@ interface SummaryProps {
 }
 
 const Summary = ({ plan, billingMode }: SummaryProps) => {
-  const { finalPlanPrice, AddonsSummary } = useSummary();
+  const { finalPlanPrice, AddonsSummary, grandTotal } = useSummary();
   return (
     <section>
       <div className="bg-alabaster p-4 flex flex-col gap-4 rounded-md">
@@ -32,8 +32,12 @@ const Summary = ({ plan, billingMode }: SummaryProps) => {
       </div>
 
       <footer className="flex justify-between items-center px-4 mt-6">
-        <h3 className="text-cool-gray">Total (per month) </h3>
-        <span className="font-bold text-purplish-blue text-lg">+$12/mo</span>
+        <h3 className="text-cool-gray">
+          Total (per {billingMode === "monthly" ? "month" : "year"}){" "}
+        </h3>
+        <span className="font-bold text-purplish-blue text-lg">
+          +${grandTotal}
+        </span>
       </footer>
     </section>
   );

@@ -1,5 +1,6 @@
 import { useAddons } from "./useAddons";
 import type { IAddon, FilteredAddons } from "@/types";
+import { getGrandTotal } from "@/utils";
 
 export const useSummary = () => {
   const {
@@ -24,5 +25,7 @@ export const useSummary = () => {
     []
   );
 
-  return { finalPlanPrice, AddonsSummary };
+  const grandTotal = getGrandTotal(plan, billingMode, bills, AddonsSummary);
+
+  return { finalPlanPrice, AddonsSummary, grandTotal };
 };

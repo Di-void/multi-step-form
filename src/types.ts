@@ -1,5 +1,6 @@
 // Re-usables
 export type BillingMode = "monthly" | "yearly";
+export type Bills = Record<addons | Plans, Record<BillingMode, number>>;
 export type Plans = "arcade" | "advanced" | "pro";
 export type addons =
   | "oneline-service"
@@ -15,7 +16,6 @@ export interface IAddon {
 
 // Store-specific
 type Addons = Record<addons, boolean>;
-type Bills = Record<addons | Plans, Record<BillingMode, number>>;
 export interface GenericState {
   page: number;
   nextPage: () => void;
