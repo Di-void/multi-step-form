@@ -2,7 +2,6 @@ import { useForm } from "react-hook-form";
 import { useStore } from "@/stores/generic-store";
 import { PersonalInfoForm } from "@/lib";
 import FooterNav from "@/components/FooterNav";
-import { DevTool } from "@hookform/devtools";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 
@@ -32,7 +31,6 @@ const InfoForm = () => {
   });
   const {
     register,
-    control,
     formState: { errors, isValid },
     handleSubmit,
   } = form;
@@ -80,8 +78,6 @@ const InfoForm = () => {
 
         <FooterNav backBtnIsVisible={false} />
       </form>
-      {/* // TODO Remove Devtool after project completion */}
-      <DevTool control={control} />
     </>
   );
 };
