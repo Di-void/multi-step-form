@@ -26,7 +26,7 @@ const DesktopNav = ({ page }: Page) => {
                   className={`border ${
                     page >= index
                       ? "text-black bg-light-blue border-transparent"
-                      : "border-white"
+                      : "border-white text-white"
                   } font-bold rounded-full p-4 w-3 h-3 flex items-center justify-center`}
                 >
                   <span>{index + 1}</span>
