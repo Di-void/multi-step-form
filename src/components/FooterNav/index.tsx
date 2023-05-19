@@ -4,6 +4,7 @@ interface FooterNavProps {
   backBtnIsVisible: boolean;
   nextBtnStyles?: string;
   nextBtnLabel?: string;
+  nextPageManualTrigger?: () => void;
 }
 
 const nextBtnDefaultStyles =
@@ -13,6 +14,7 @@ const FooterNav = ({
   backBtnIsVisible,
   nextBtnLabel = "next step",
   nextBtnStyles = nextBtnDefaultStyles,
+  nextPageManualTrigger,
 }: FooterNavProps) => {
   const prevPage = useStore((state) => state.prevPage);
 
@@ -27,7 +29,11 @@ const FooterNav = ({
       >
         go back
       </button>
-      <button type="submit" className={nextBtnStyles}>
+      <button
+        type="submit"
+        onClick={nextPageManualTrigger}
+        className={nextBtnStyles}
+      >
         {nextBtnLabel}
       </button>
     </footer>

@@ -1,5 +1,6 @@
 import Summary from "@/components/Summary";
 import { useAddons } from "@/hooks";
+import { useStore } from "@/stores/generic-store";
 import FooterNav from "@/components/FooterNav";
 
 const nxtBtnStyles =
@@ -7,6 +8,7 @@ const nxtBtnStyles =
 
 const FinishUp = () => {
   const { billingMode, plan } = useAddons();
+  const nextPage = useStore((state) => state.nextPage);
   return (
     <div>
       <header className="mb-2">
@@ -22,6 +24,7 @@ const FinishUp = () => {
       <Summary billingMode={billingMode} plan={plan} />
 
       <FooterNav
+        nextPageManualTrigger={nextPage}
         backBtnIsVisible={true}
         nextBtnLabel="confirm"
         nextBtnStyles={nxtBtnStyles}
