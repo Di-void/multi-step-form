@@ -43,7 +43,12 @@ export default Summary;
 
 const AddonsDetails = ({ arr }: AddonDetailsProps) => {
   if (arr.length === 0) {
-    return <div>No addons</div>;
+    return (
+      <div className="flex justify-between items-center">
+        <h3 className="text-cool-gray">No addons {":)"}</h3>
+        <span className="text-marine-blue font-medium">+$0.00</span>
+      </div>
+    );
   }
   return (
     <>
