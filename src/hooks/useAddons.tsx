@@ -10,15 +10,17 @@ interface IAddon {
 }
 
 const useAddons = () => {
-  const { bill, billingMode, updateAddon, addOnsCheckedState } = useStore(
-    (state) => ({
-      bill: state.bills,
-      billingMode: state.billingMode,
-      updateAddon: state.updateAddon,
-      addOnsCheckedState: state.addOns,
-    }),
-    shallow
-  );
+  const { bill, billingMode, updateAddon, addOnsCheckedState, nextPage } =
+    useStore(
+      (state) => ({
+        bill: state.bills,
+        billingMode: state.billingMode,
+        updateAddon: state.updateAddon,
+        addOnsCheckedState: state.addOns,
+        nextPage: state.nextPage,
+      }),
+      shallow
+    );
   const Addons: IAddon[] = [
     {
       id: "oneline-service",
@@ -48,7 +50,7 @@ const useAddons = () => {
           : `${bill["customizable-profile"].yearly}/yr`,
     },
   ];
-  return { Addons, addOnsCheckedState, updateAddon };
+  return { Addons, addOnsCheckedState, updateAddon, nextPage };
 };
 
 export default useAddons;

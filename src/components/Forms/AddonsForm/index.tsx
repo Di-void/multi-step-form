@@ -2,10 +2,15 @@ import FooterNav from "@/components/FooterNav";
 import useAddons from "@/hooks/useAddons";
 
 const AddonsForm = () => {
-  const { Addons, updateAddon, addOnsCheckedState } = useAddons();
+  const { Addons, updateAddon, addOnsCheckedState, nextPage } = useAddons();
+
+  const onSubmit = (e: React.SyntheticEvent) => {
+    e.preventDefault();
+    nextPage();
+  };
 
   return (
-    <form className="flex flex-col gap-3">
+    <form className="flex flex-col gap-3" onSubmit={onSubmit}>
       {Addons.map((addon) => {
         return (
           <div key={addon.id} className="relative">
