@@ -2,7 +2,7 @@ import FooterNav from "@/components/FooterNav";
 import useAddons from "@/hooks/useAddons";
 
 const AddonsForm = () => {
-  const { Addons, updateAddon, addOns } = useAddons();
+  const { Addons, updateAddon, addOnsCheckedState } = useAddons();
 
   return (
     <form className="flex flex-col gap-3">
@@ -14,7 +14,7 @@ const AddonsForm = () => {
               className="absolute top-[40%] left-4 lg:left-3 peer w-5 h-5 border-light-gray rounded form-checkbox text-purplish-blue focus:ring-offset-0 focus:ring-0"
               name="addons"
               id={addon.id}
-              checked={addOns[addon.id]}
+              checked={addOnsCheckedState[addon.id]}
               onChange={() => {
                 updateAddon(addon.id);
               }}
