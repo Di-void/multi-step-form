@@ -20,24 +20,28 @@ const DesktopNav = ({ page }: Page) => {
           { label: "step 4", desc: "summary" },
         ].map(({ label, desc }, index, arr) => {
           if (index === arr.length - 1) {
-            <div key={label} className="flex gap-6 items-center">
-              <div
-                className={`border ${
-                  page >= index
-                    ? "text-black bg-light-blue border-transparent"
-                    : "border-white text-white"
-                } font-bold rounded-full p-4 w-3 h-3 flex items-center justify-center`}
-              >
-                <span>{index + 1}</span>
-              </div>
+            return (
+              <div key={label} className="flex gap-6 items-center">
+                <div
+                  className={`border ${
+                    page >= index
+                      ? "text-black bg-light-blue border-transparent"
+                      : "border-white"
+                  } font-bold rounded-full p-4 w-3 h-3 flex items-center justify-center`}
+                >
+                  <span>{index + 1}</span>
+                </div>
 
-              <div>
-                <h4 className="text-pastel-blue text-sm uppercase">{label}</h4>
-                <h1 className="uppercase text-white tracking-wide font-semibold">
-                  {desc}
-                </h1>
+                <div>
+                  <h4 className="text-pastel-blue text-sm uppercase">
+                    {label}
+                  </h4>
+                  <h1 className="uppercase text-white tracking-wide font-semibold">
+                    {desc}
+                  </h1>
+                </div>
               </div>
-            </div>;
+            );
           }
           return (
             <div key={label} className="flex gap-6 items-center">
