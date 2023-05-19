@@ -5,6 +5,12 @@ export type addons =
   | "oneline-service"
   | "larger-storage"
   | "customizable-profile";
+export interface IAddon {
+  id: addons;
+  label: string;
+  description: string;
+  price: `${number}/mo` | `${number}/yr`;
+}
 
 // Store-specific
 type Addons = Record<addons, boolean>;

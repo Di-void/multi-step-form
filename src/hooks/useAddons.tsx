@@ -1,13 +1,6 @@
 import { useStore } from "@/stores/generic-store";
 import { shallow } from "zustand/shallow";
-import type { addons } from "@/types";
-
-interface IAddon {
-  id: addons;
-  label: string;
-  description: string;
-  price: `${number}/mo` | `${number}/yr`;
-}
+import type { IAddon } from "@/types";
 
 const useAddons = () => {
   const { bill, billingMode, updateAddon, addOnsCheckedState, nextPage } =

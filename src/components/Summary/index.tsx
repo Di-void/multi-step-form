@@ -1,18 +1,25 @@
-const Summary = () => {
+import type { BillingMode, Plans, IAddon } from "@/types";
+interface SummaryProps {
+  billingMode: BillingMode;
+  plan: Plans;
+  price: IAddon["price"];
+}
+
+const Summary = ({ billingMode, plan, price }: SummaryProps) => {
   return (
     <section>
       <div className="bg-alabaster p-4 flex flex-col gap-4 rounded-md">
         <header className="flex justify-between items-center border-b-2 border-b-light-gray pb-4">
           <div>
             <h3 className="capitalize font-bold text-marine-blue">
-              arcade (monthly)
+              {plan} ({billingMode})
             </h3>
             <button className="text-cool-gray underline capitalize hover:text-purplish-blue">
               change
             </button>
           </div>
 
-          <h3 className="text-marine-blue font-bold">$9/mo</h3>
+          <h3 className="text-marine-blue font-bold">${price}</h3>
         </header>
 
         <div className="flex justify-between items-center">
