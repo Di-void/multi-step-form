@@ -1,5 +1,6 @@
 import type { FilteredAddons, Plans, BillingMode } from "@/types";
 import { useSummary } from "@/hooks";
+import { useStore } from "@/stores/generic-store";
 
 interface AddonDetailsProps {
   arr: FilteredAddons[];
@@ -12,6 +13,7 @@ interface SummaryProps {
 
 const Summary = ({ plan, billingMode }: SummaryProps) => {
   const { finalPlanPrice, AddonsSummary, grandTotal } = useSummary();
+  const setPage = useStore((state) => state.setPage);
   return (
     <section>
       <div className="bg-alabaster p-4 flex flex-col gap-4 rounded-md">
@@ -20,7 +22,10 @@ const Summary = ({ plan, billingMode }: SummaryProps) => {
             <h3 className="capitalize font-bold text-marine-blue">
               {plan} ({billingMode})
             </h3>
-            <button className="text-cool-gray underline capitalize hover:text-purplish-blue">
+            <button
+              onClick={() => setPage(1)}
+              className="text-cool-gray underline capitalize hover:text-purplish-blue"
+            >
               change
             </button>
           </div>
