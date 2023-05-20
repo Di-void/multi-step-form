@@ -77,7 +77,8 @@ export const useAddons = () => {
 
 ### Continued development
 
-I may or may not add animations. I also wanted to attach the Personal Info Form to state initially but I figured since it's important after you've passed it, it's best I leave it that way 🤷🏾‍♀️
+I may or may not add animations. I also wanted to attach the Personal Info Form to state initially but I figured since it's not so important after you've passed that screen, it's forgoable 🤷🏾‍♀️.
+I was also gunning for a clean and well structured code in this project and I think I was able to achieve that to some extent :)
 
 ### Useful resources
 
@@ -92,4 +93,4 @@ I may or may not add animations. I also wanted to attach the Personal Info Form 
 
 ## Acknowledgments
 
-Thanks [Frontend Mentor](https://www.frontendmentor.io) thank You 💙
+Thanks [Frontend Mentor](https://www.frontendmentor.io) and thank You 💙
