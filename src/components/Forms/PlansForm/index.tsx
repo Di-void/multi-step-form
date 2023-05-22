@@ -9,13 +9,14 @@ import type { Plans } from "@/types";
 export type MonthYearToggleProps = { billing: BillingMode };
 
 const PlansForm = () => {
-  const { billingMode, bill, plan, nextPage, setPlan } = useStore(
+  const { billingMode, bill, plan, nextPage, setPlan, prevPage } = useStore(
     (state) => ({
       billingMode: state.billingMode,
       bill: state.bills,
       plan: state.plan,
       setPlan: state.setPlan,
       nextPage: state.nextPage,
+      prevPage: state.prevPage,
     }),
     shallow
   );
@@ -97,7 +98,7 @@ const PlansForm = () => {
           );
         })}
 
-        <FooterNav backBtnIsVisible={true} />
+        <FooterNav backBtnIsVisible={true} prevPage={prevPage} />
       </form>
 
       <MonthYearToggle billing={billingMode} />

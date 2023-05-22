@@ -21,6 +21,7 @@ type FormData = z.infer<typeof schema>;
 
 const InfoForm = () => {
   const nextPage = useStore((state) => state.nextPage);
+  const prevPage = useStore((state) => state.prevPage);
   const form = useForm<FormData>({
     resolver: zodResolver(schema),
     defaultValues: {
@@ -76,7 +77,7 @@ const InfoForm = () => {
           );
         })}
 
-        <FooterNav backBtnIsVisible={false} />
+        <FooterNav backBtnIsVisible={false} prevPage={prevPage} />
       </form>
     </>
   );

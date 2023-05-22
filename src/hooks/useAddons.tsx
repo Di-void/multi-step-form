@@ -3,18 +3,26 @@ import { shallow } from "zustand/shallow";
 import type { IAddon } from "@/types";
 
 export const useAddons = () => {
-  const { bill, billingMode, updateAddon, addOnsCheckedState, nextPage, plan } =
-    useStore(
-      (state) => ({
-        bill: state.bills,
-        billingMode: state.billingMode,
-        updateAddon: state.updateAddon,
-        addOnsCheckedState: state.addOns,
-        nextPage: state.nextPage,
-        plan: state.plan,
-      }),
-      shallow
-    );
+  const {
+    bill,
+    billingMode,
+    updateAddon,
+    addOnsCheckedState,
+    nextPage,
+    plan,
+    prevPage,
+  } = useStore(
+    (state) => ({
+      bill: state.bills,
+      billingMode: state.billingMode,
+      updateAddon: state.updateAddon,
+      addOnsCheckedState: state.addOns,
+      nextPage: state.nextPage,
+      prevPage: state.prevPage,
+      plan: state.plan,
+    }),
+    shallow
+  );
   const Addons: IAddon[] = [
     {
       id: "oneline-service",
@@ -52,5 +60,6 @@ export const useAddons = () => {
     plan,
     billingMode,
     bill,
+    prevPage,
   };
 };

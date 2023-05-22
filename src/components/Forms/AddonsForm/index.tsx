@@ -2,7 +2,8 @@ import FooterNav from "@/components/FooterNav";
 import { useAddons } from "@/hooks";
 
 const AddonsForm = () => {
-  const { Addons, updateAddon, addOnsCheckedState, nextPage } = useAddons();
+  const { Addons, updateAddon, addOnsCheckedState, nextPage, prevPage } =
+    useAddons();
 
   const onSubmit = (e: React.SyntheticEvent) => {
     e.preventDefault();
@@ -48,7 +49,7 @@ const AddonsForm = () => {
         );
       })}
 
-      <FooterNav backBtnIsVisible={true} />
+      <FooterNav backBtnIsVisible={true} prevPage={prevPage} />
     </form>
   );
 };

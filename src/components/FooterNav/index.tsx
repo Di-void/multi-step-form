@@ -1,10 +1,9 @@
-import { useStore } from "@/stores/generic-store";
-
 interface FooterNavProps {
   backBtnIsVisible: boolean;
   nextBtnStyles?: string;
   nextBtnLabel?: string;
   nextPageManualTrigger?: () => void;
+  prevPage: () => void;
 }
 
 const nextBtnDefaultStyles =
@@ -15,9 +14,8 @@ const FooterNav = ({
   nextBtnLabel = "next step",
   nextBtnStyles = nextBtnDefaultStyles,
   nextPageManualTrigger,
+  prevPage,
 }: FooterNavProps) => {
-  const prevPage = useStore((state) => state.prevPage);
-
   return (
     <footer className="fixed xl:absolute bottom-0 xl:bottom-3 left-0 w-full p-6 xl:p-0 xl:pl-9 flex justify-between bg-white">
       <button
